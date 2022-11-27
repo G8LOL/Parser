@@ -4,7 +4,7 @@ Parser/searcher for databases
 
 ## Usage
 
-The config file is automaticalled generated. Enter links or file paths to the sources under the "bases" array.
+The config file is automatically generated. Enter links or file paths to the sources under the "bases" array.
 
 Options in the config:
 - "ignorecase" ignores capitalization when searching
