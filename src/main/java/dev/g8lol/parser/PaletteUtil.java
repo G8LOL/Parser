@@ -1,10 +1,6 @@
 package dev.g8lol.parser;
 
 /**
- * Copyright Radium 2022
- * None of this code to be reused without my written permission
- * Intellectual Rights owned by Radium Skidda
- *
  * @author G8LOL
  * @since 10/1/2022
  */
