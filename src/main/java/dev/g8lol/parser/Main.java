@@ -122,7 +122,7 @@ public class Main {
         }
 
         //stuff
-        PrintUtil.print("Loaded database(s) - time taken (ms): " + (System.currentTimeMillis() - time) + "\n");
+        PrintUtil.print("Loaded database(s) - Time Taken: " + (System.currentTimeMillis() - time) + "ms\n");
 
         System.out.println(PaletteUtil.ANSI_YELLOW + "Lines:" + PaletteUtil.ANSI_RESET);
         lengths.forEach(length -> System.out.println(PaletteUtil.ANSI_RED + "[" + length + "]" + PaletteUtil.ANSI_RESET));
@@ -766,8 +766,6 @@ public class Main {
 
             final FileType fileType = isCSV(stringBuilder.toString(), url) ?
                     FileType.CSV : isJSON(stringBuilder.toString()) ? FileType.JSON : FileType.TXT;
-
-            System.out.println(fileType);
 
             return new Tuple<>(stringBuilder.toString(), lines.size(), fileType);
         }
