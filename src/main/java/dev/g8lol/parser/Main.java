@@ -26,7 +26,7 @@ import java.util.stream.IntStream;
  */
 public class Main {
 
-    public static final String NAME = "NN SEARCH";
+    public static final String NAME = "SEARCH";
 
     private static String customString;
     private static ExecutorService executorService;
@@ -42,16 +42,6 @@ public class Main {
     private static final List<Character> CSV_DELIMITERS = Arrays.asList(',', ';', '|', '\t', ' ');
 
     public static void main(String[] args) throws IOException {
-        System.out.println(PaletteUtil.ANSI_PURPLE + """
-                                
-                  _   _ _   _   ____  _____    _    ____   ____ _   _\s
-                 | \\ | | \\ | | / ___|| ____|  / \\  |  _ \\ / ___| | | |
-                 |  \\| |  \\| | \\___ \\|  _|   / _ \\ | |_) | |   | |_| |
-                 | |\\  | |\\  |  ___) | |___ / ___ \\|  _ <| |___|  _  |
-                 |_| \\_|_| \\_| |____/|_____/_/   \\_\\_| \\_\\\\____|_| |_|
-                                                                     \s
-                """ + PaletteUtil.ANSI_RESET);
-
         System.out.println(PaletteUtil.ANSI_CYAN + "    --------------------- Start ---------------------\n" + PaletteUtil.ANSI_RESET);
 
         final Scanner scanner = new Scanner(System.in);
@@ -71,7 +61,6 @@ public class Main {
                         {
                             "ignorecase": false,
                             "contains": false,
-                            "nodelay": false,
                             "crossreference": false,
                             "unwrap": false,
                             "bases": []
@@ -174,8 +163,6 @@ public class Main {
 
             term = scanner.next();
 
-            sleep(1000);
-
             //actual start
             PrintUtil.print("Checking Databases..");
 
@@ -237,13 +224,10 @@ public class Main {
             if (!finalInfo.isEmpty()) {
                 PrintUtil.print("Printing Information - Time Taken: " + (System.currentTimeMillis() - initialTime) + "ms");
 
-                sleep(700);
-
                 System.out.println(finalInfo);
             } else
                 PrintUtil.print("Nothing found at all :(");
 
-            sleep(700);
 
             System.out.println(PaletteUtil.ANSI_CYAN + "\n    --------------------- End ---------------------\n" + PaletteUtil.ANSI_RESET);
         }
@@ -260,20 +244,6 @@ public class Main {
         final Future<Tuple<String, Integer, FileType>> future = executorService.submit(new DatabaseCallable(url));
 
         return future.get();
-    }
-
-    /**
-     * so things arent printed instantly in console though it doesnt really matter
-     * @param ms the amount of milliseconds to sleep
-     */
-    public static void sleep(final long ms) {
-        if (!(boolean) configMap.get("nodelay")) {
-            try {
-                Thread.sleep(ms);
-            } catch (final InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     /**

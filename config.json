@@ -1,7 +1,6 @@
 {
     "ignorecase": false,
     "contains": false,
-    "nodelay": false,
     "crossreference": false,
     "unwrap": false,
     "bases": [
